@@ -8,10 +8,17 @@
 </template>
 
 <script>
-import store from "./components/Store"
+import store from "./components/Store";
+import {mapActions} from "vuex";
 export default {
   name: 'App',
-  components:{store}
+  components:{store},
+  methods:{
+    ...mapActions(["getData"])
+  },
+  created() {
+    this.getData();
+  },
 }
 </script>
 
