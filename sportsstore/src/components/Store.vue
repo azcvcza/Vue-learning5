@@ -11,6 +11,7 @@
 				<CategoryControls></CategoryControls>
 			</div>
 			<div class="col-9 bg-success p-2">
+				 <router-view/>
 				<h4 class="text-white m-2">PRODUCT</h4>
 				<div class="col-9 p-2">
 					<ProductList />
