@@ -29,6 +29,32 @@ export default {
             if (index > -1) {
                 state.lines.splice(index, 1);
             }
+        },
+        setCartData(state, data) {
+            state.lines = data;
+        }
+    },
+    actions: {
+        loadCartData(context) {
+            let data = localStorage.getItem("cart");
+
+            if (data != null) {
+                console.log("loading data");
+                context.commit("setCartData", JSON.parse(data));
+            }
+        },
+        storeCartData(context) {
+            console.log("store:", context)
+            localStorage.setItem("cart", JSON.stringify(context.state.lines));
+        },
+        clearCartData(context) {
+            console.log("clear:", context)
+            context.commit("setCartData", []);
+        },
+        initialiazeCart(context, store) {
+            console.log("init,:", store)
+            context.dispatch("loadCartData");
+            store.watch(state => state.cart.lines, () => context.dispatch("storeCartData"), { deep: true })
         }
     }
 }

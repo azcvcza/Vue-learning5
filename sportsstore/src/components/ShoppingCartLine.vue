@@ -25,12 +25,6 @@ export default {
 			qvalue:this.line.quantity
 		}
 	},
-	filters: {
-        currency(value) {
-            return new Intl.NumberFormat("en-US",
-                { style: "currency", currency: "USD" }).format(value);
-        }
-		},
 	methods:{
 		sendChangeEvent($event){
 			if($event.target.value>0){

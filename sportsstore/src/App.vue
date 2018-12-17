@@ -6,16 +6,21 @@
 </template>
 
 <script>
-import store from "./components/Store";
+//import store from "./components/Store";
 import {mapActions} from "vuex";
 export default {
   name: 'App',
-  components:{store},
+  //components:{store},
   methods:{
-    ...mapActions(["getData"])
+    ...mapActions({
+      getData:"getData",
+      initializeCart:"cart/initialiazeCart",
+    }),
+    
   },
   created() {
     this.getData();
+    this.initializeCart(this.$store);
   },
 }
 </script>

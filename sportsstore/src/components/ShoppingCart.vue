@@ -6,6 +6,14 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="col">
+				<div class="text-center">
+					<router-link to="/" class="btn btn-secondary m-1">继续购物</router-link>
+					<router-link to="/checkout" v-bind:disabled="lines.length==0" class="btn btn-primary m-1">Checkout</router-link>
+				</div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col mt-2">
 				<h2 class="text-center">Your Cart</h2>
 				<table class="table table-bordered table-striped p-2">
@@ -38,14 +46,7 @@
 				</table>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-				<div class="text-center">
-					<router-link to="/" class="btn btn-secondary m-1">继续购物</router-link>
-					<router-link to="/checkout" v-bind:disabled="lines.length==0" class="btn btn-primary m-1">Checkout</router-link>
-				</div>
-			</div>
-		</div>
+		
 	</div>
 </template>
 <script>
@@ -66,11 +67,6 @@ export default {
 				this.change({line,quantity:$event})
 			}
 		},
-		filters: {
-        currency(value) {
-            return new Intl.NumberFormat("en-US",
-                { style: "currency", currency: "USD" }).format(value);
-        }
-		},
+		
 }
 </script>
