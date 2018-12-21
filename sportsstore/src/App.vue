@@ -7,6 +7,7 @@
 
 <script>
 //import store from "./components/Store";
+//coming from vmware ubuntu
 import {mapActions} from "vuex";
 export default {
   name: 'App',
